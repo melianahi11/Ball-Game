@@ -1,0 +1,213 @@
+body {
+   margin: 0;
+   padding: 0;
+   font-family: sans-serif;
+   line-height: 1.5;
+   height: 100vh;
+   width: 100vw;
+   display: flex;
+   justify-content: space-around;
+   align-items: center; 
+   overflow: hidden;
+   box-sizing: border-box; 
+   /* background-image: url('e60c4ae6305c1b5d57e9954166761db9.gif');
+   background-repeat: repeat;
+   background-size: cover; */
+}
+
+.stage {
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    /* perspective: 1200px; */
+    /* perspective-origin: 70% 50%; */
+    margin:20px;
+}
+
+.ball-container {
+    width: 100px;
+    /* height: 100px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.ball {
+    transform-style: preserve-3d; 
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.ball:before {
+    content: "";
+    position: absolute;
+    top: 1%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 0px, #ffffff, rgba(255, 255, 255, 0) 58%);
+    filter: blur(5px);
+    z-index: 2;
+}
+
+.ball1 {
+    /* position: absolute; */
+    display: block;
+    background: black;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    background: radial-gradient(circle at 100px 100px, #58e1bd, #000);
+}
+
+.ball2 {
+    /* position: absolute; */
+    display: block;
+    background: black;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 100px 100px, #f75394, #000); /* center position 70px in from the left & 40px from the top*/
+}
+
+.ball3 {
+    /* position: absolute; */
+    display: block;
+    background: black;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 100px 100px, #ffcf1f, #000);
+}
+
+.shadow {
+    position: absolute;
+    width: 5%;
+    height: 16%;
+    background: radial-gradient(circle at 50% 50%, rgba(27, 26, 26, 0.85), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
+    transform: rotateX(80deg) translateZ(-50px);
+    z-index: -1;
+    pointer-events: none;
+} 
+
+.ball1:hover, 
+.ball2:hover, 
+.ball3:hover {
+    transform: translateY(-20px);
+}
+
+.toolbar {
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f75395;
+    border-radius: 25px;
+    padding: 10px 10px;
+    display:flex;
+    flex-direction: row;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.237);
+    /* width: 700px; */
+}
+
+.coordinate-pair {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 5px;
+    width: 200px; 
+} 
+
+.coordinate-pair label {
+    margin-right: 5px;
+    color:#c6f753;
+    font-weight: bold;
+}
+
+.coordinate-pair > .ball-label {
+    font-weight: bold;
+    font-size: 25px;
+    color:hsl(47, 95%, 68%);
+    text-align: center;
+    text-decoration: underline;
+    margin: 2px;
+}
+
+.coordinate-pair input {
+    margin: 3px 0;
+    padding: 5px;
+    border: 2px solid #ffcf1f;
+    border-radius: 5px;
+    width:70px;
+    flex-direction: column;
+}
+
+
+
+/* .wrapper {
+    display: flex;
+    position: fixed;
+    align-items: flex-start;
+    height: 100vh;
+    width: 100vw;
+    flex-grow: 1; 
+    padding: 20px;
+    overflow-y: auto;
+    transition: height 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.down-panel-toggle { 
+    width: 90px;
+    height: 40px;
+    flex-shrink: 0;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    background:#f75394;
+    border: none;
+    border-radius: 0 0 5px 5px;
+    outline: none;
+    cursor: pointer; 
+}
+
+.down-panel-toggle:hover {
+    background: #b03b69;
+}
+
+.dp-icon-close {
+    display: none !important;
+}
+
+.down-panel {
+    display: none;
+    width: 100%;
+    height: 5px;
+    flex-shrink: 0;
+    flex-direction: column;
+    padding: 300px;
+    color: #ffffff;
+    background:#f75394;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+}
+
+.down-panel-open .down-panel {  
+    display: initial;
+}
+
+.down-panel-open .dp-icon-open {
+    display: none !important;
+}
+
+.down-panel-open .dp-icon-close {
+    display: initial !important;
+}
+
+ */
