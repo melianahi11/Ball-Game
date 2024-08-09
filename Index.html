@@ -1,67 +1,58 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="js/script.js"></script>
-        <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/script.js"defer></script>
     </head>
     <body>
-        <section class="stage">
-            <div class="ball-container">
-                <div class="ball ball1"></div>   
-                <div class="shadow"></div>
-            </div>
-            
-            <div class="ball-container">
-                <div class="ball ball2"></div> 
-                <div class="shadow"></div>
-            </div>
-                
-            <div class="ball-container">
-                <div class="ball ball3"></div>
-                <div class="shadow"></div>
-            </div>
-        </section>
-        
-        <div class="toolbar">
+        <nav class="toolbar">
             <div class="coordinate-pair">
                 <h1 class="ball-label">Ball1</h1>
                 <label for="X1">X1 =
-                    <input type="text">
+                    <input type="text" name="X1" id="X1">
                 </label>
                 <label for="Y1">Y1 =
-                    <input type="text">
+                    <input type="text" name="Y1" id="Y1">
                 </label>
+                <button onclick="moveBalls()" id="b1">Enter</button>
             </div>
-            <div class="coordinate-pair">
+            <!-- <div class="coordinate-pair">
                 <h1 class="ball-label">Ball2</h1>
                 <label for="X2">X2 =
-                    <input type="text">
+                    <input type="text" name="X2" id="X2">
                 </label>
                 <label for="Y2">Y2 =
-                    <input type="text">
+                    <input type="text" name="Y2" id="Y2">
                 </label>
+                <button onclick="moveBalls()" id="b2">Enter</button>
             </div>
             <div class="coordinate-pair">
                 <h1 class="ball-label">Ball3</h1>
                 <label for="X3">X3 =
-                    <input type="text">
+                    <input type="text" name="X3" id="X3">
                 </label>
                 <label for="Y3">Y3 =
-                    <input type="text">
+                    <input type="text" name="Y3" id="Y3">
                 </label>
+                <button onclick="moveBalls()" id="b3">Enter</button>
             </div>
-        </div>
+        </nav> -->
 
-
-        <!-- <div class="wrapper down-panel-open"> 
-            <button class="down-panel-toggle" type="button">
-                <div class="material-symbols-outlined dp-icon-open">keyboard_double_arrow_down</div>
-                <div class="material-symbols-outlined dp-icon-close">keyboard_double_arrow_up</div>
-            </button>
-            <div class="down-panel">
-                content for panel
-            </div>
+        <!-- <div class="ball-container ballContainer1">
+            <div class="ball ball1"></div>   
+            <div class="shadow"></div>
+        </div> -->
+        
+        <!-- <div class="ball-container ballContainer2">
+            <div class="ball ball2"></div> 
+            <div class="shadow"></div>
         </div>
+            
+        <div class="ball-container ballContainer3">
+            <div class="ball ball3"></div>
+            <div class="shadow"></div>
+        </div> -->
+        <div id="ball-container"></div>
     </body>
 </html>
