@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body {
+   font-family: sans-serif;
+   line-height: 1.5;
+}
+
+.ball-container {
+    /* border: 1px solid red; */
+    width: 100px;
+    height: 110px;
+    display: block;
+    position: absolute; /* outer container needs to be absolute/ everything inside relatively*/
+}
+
+.ball {
+    transform-style: preserve-3d; 
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
+    /* z-index: 1000; */
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    background: black;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 100px 100px, #58e1bc00, #000000a9);
+}
+
+.ball:before {
+    content: "";
+    position: absolute;
+    top: 1%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 0px, #ffffff, rgba(255, 255, 255, 0) 58%);
+    filter: blur(5px);
+    z-index: 2;
+}
+
+.shadow {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -90px;
+    width: 180px;
+    height: 60px;
+    background: radial-gradient(circle at 50% 50%, rgba(27, 26, 26, 0.85), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
+    transform: rotateX(80deg) translateZ(-50px);
+    z-index: -1;
+    pointer-events: none;
+} 
+
+.ball:hover {
+    transform: translateY(-20px);
+}
+
+.toolbar {
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f75395;
+    border-radius: 25px;
+    padding: 10px 10px;
+    display:flex;
+    flex-direction: row;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.237);
+    /* width: 700px; */
+}
+
+.coordinate-pair {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 5px;
+    width: 200px; 
+} 
+
+.coordinate-pair label {
+    margin-right: 5px;
+    color:#c6f753;
+    font-weight: bold;
+}
+
+.coordinate-pair > .ball-label {
+    font-weight: bold;
+    font-size: 25px;
+    color:hsl(47, 95%, 68%);
+    text-align: center;
+    text-decoration: underline;
+    margin: 2px;
+}
+
+.coordinate-pair input {
+    margin: 3px 0;
+    padding: 5px;
+    border: 2px solid #ffcf1f;
+    border-radius: 5px;
+    width:70px;
+    flex-direction: column;
+}
+
+button {
+    cursor: pointer;
+}
