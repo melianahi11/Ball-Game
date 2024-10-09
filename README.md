@@ -1,5 +1,5 @@
 # Ball-Game
-Welcome to the **JavaScript Ball-Game**! This project demonstrates a simple physics simulation of moving balls within a container, where the balls bounce off the edges off the viewport
+Welcome to the **Ball-Game**! This project demonstrates a simple physics simulation of moving balls within a container, where the balls bounce off the edges off the viewport
 and each other. The game is styled with realistic gradients and shadows, and each ball's size is dynamically calculated for universal collision handling.
 
 ## Project Features
