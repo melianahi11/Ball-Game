@@ -182,27 +182,23 @@ function updateSunPosition() {
     const sunDegrees = calculateSunPosition();
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
-
     let x, y;
     
     if (sunDegrees <= 90) {
-        x = 0;
-        y = viewportHeight -  (sunDegrees / 90) * viewportHeight;
-    } else if(sunDegrees <= 180) {
-        x = (sunDegrees - 90) / 90 * viewportWidth;
-        y = 0;
+        x = (sunDegrees / 90) * (viewportWidth / 2); // Move from left to center
+        y = viewportHeight - (sunDegrees / 90) * viewportHeight; // Move to top
     } else {
-        x = viewportWidth;
-        y = ((sunDegrees - 180) / 90) * viewportHeight;
+        x = ((sunDegrees - 90) / 90) * (viewportWidth / 2) + (viewportWidth / 2); // Move from center to right
+        y = 0; // At noon (top center)
     }
-
+    
     console.log(`Sun Degrees: ${sunDegrees}, X: ${x}, Y: ${y}`);
-
     const sunElement = document.querySelector('.sun');
     if (sunElement) {
         sunElement.style.left = `${x}px`;
         sunElement.style.top = `${y}px`;
     }
+    
     updateBackground();
     updateShadows();
 }
