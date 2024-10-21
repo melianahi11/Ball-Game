@@ -14,6 +14,7 @@ html, body {
 body {
    font-family: sans-serif;
    line-height: 1.5;
+   background: rgb(129, 213, 255);
 }
 
 .ball-container {
@@ -22,6 +23,7 @@ body {
     height: 110px;
     display: block;
     position: absolute; /* outer container needs to be absolute/ everything inside relatively*/
+    z-index: 2; 
 }
 
 .ball {
@@ -54,33 +56,20 @@ body {
 
 .shadow {
     position: absolute;
-    bottom: 30px;
+    bottom: 10px;
     left: 50%;
-    margin-left: -90px;
-    width: 180px;
-    height: 60px;
-    background: radial-gradient(circle at 50% 50%, rgba(27, 26, 26, 0.85), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
-    transform: rotateX(80deg) translateZ(-50px);
+    width: 100px; /* Adjust width */
+    height: 20px; /* Adjust height */
+    background: radial-gradient(ellipse at 50% 50%, rgba(27, 26, 26, 0.85), rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0) 70%);
+    transform: translateX(-50%); /* Center the shadow horizontally */
     z-index: -1;
     pointer-events: none;
-} 
+}
+
+
 
 .ball:hover {
     transform: translateY(-20px);
-}
-
-.toolbar {
-    position: fixed;
-    top: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #f75395;
-    border-radius: 25px;
-    padding: 10px 10px;
-    display:flex;
-    flex-direction: row;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.237);
-    /* width: 700px; */
 }
 
 .coordinate-pair {
@@ -117,4 +106,93 @@ body {
 
 button {
     cursor: pointer;
+}
+
+.rays-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: visible;
+}
+
+.sun {
+    background: white;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px white, 0 0 30px white, 0 0 40px white, 0 0 50px white, 0 0 60px rgb(250, 245, 150);
+    z-index: 1; 
+}
+
+.ray {
+    width: 150%;
+    height: 2px;
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255, 255, 255, 0.329) 100%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: center left;
+    box-shadow: 0 60px 60px white, 0 10px 10px white, 0 10px 10px white, 0 50px 50px rgb(255, 255, 255), 0 10px 60px rgb(240, 240, 148);
+    animation: rotateRay 10s linear infinite;
+    border-radius: 50%;
+}
+
+.ray:nth-child(odd) {
+    width: 200%;
+    height: 5px; /* Thicker rays */
+    animation-direction: reverse;
+}
+
+.ray:nth-child(4n) {
+    width: 300%;
+    height: 10px; /* Even thicker rays */
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgb(255, 255, 255) 100%);
+    border-radius: 50%;
+}
+
+@keyframes rotateRay {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.5);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.ray:nth-child(odd) {
+    animation-direction: reverse;
+}
+
+.ray:nth-child(2) { 
+    animation-delay: 0s;
+}
+.ray:nth-child(3) { 
+    animation-delay: 1.2s;
+}
+.ray:nth-child(4) { 
+    animation-delay: 1.9s;
+}
+.ray:nth-child(5) { 
+    animation-delay: 2.2s;
+}
+.ray:nth-child(6) { 
+    animation-delay: 2.7s;
+}
+.ray:nth-child(7) { 
+    animation-delay: 3.3s;
+}
+.ray:nth-child(8) { 
+    animation-delay: 3.9s;
+}
+.ray:nth-child(9) { 
+    animation-delay: 4.5s;
+}
+.ray:nth-child(10) { 
+    animation-delay: 4.8s;
 }
