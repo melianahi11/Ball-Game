@@ -158,10 +158,11 @@ function updateBackground(){
     } else {
         gradient = `linear-gradient(to top, #1A237E, #000000)`;
     }
-    document.body.style.background = gradient + ` !important`;
+    document.body.style.background = gradient;
     console.log("Background gradient set to:", gradient);
 }
 
+//6 AM - 9 AM ↑ | 9 AM - 3 PM → | 3 PM - 6 PM ↓ 
 function calculateSunPosition(date) {
     //gets current hours/minutes from the date object
     const hours = date.getHours();
@@ -214,7 +215,6 @@ function updateSunPosition() {
     updateBackground();
     updateShadows();
 }
-
 
 function updateShadows() {
     const sun = document.querySelector('.sun');
