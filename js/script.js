@@ -150,13 +150,13 @@ function updateBackground(){
     let gradient;
 
     if (hours >= 6 && hours < 8) {
-        gradient = `linear-gradient(to top, #FFCC80, #81D4FA)`;
+        gradient = `linear-gradient(90deg, rgba(245,203,144,1) 1%, rgba(253,29,29,1) 51%, rgba(111,53,134,1) 100%)`;
     } else if (hours >= 8 && hours < 17) {
-        gradient = `linear-gradient(to top, #2196F3, #BBDEFB)`;
+        gradient = `linear-gradient(0deg, rgba(87,197,220,1) 0%, rgba(255,251,203,1) 100%)`;
     } else if (hours >= 17 && hours < 19) {
         gradient = `linear-gradient(to top, #FF5722, #673AB7)`;
     } else {
-        gradient = `linear-gradient(to top, #1A237E, #000000)`;
+        gradient = `background: linear-gradient(90deg, rgba(111,53,134,1) 23%, rgba(253,29,29,1) 54%, rgba(245,203,144,1) 95%)`;
     }
     document.body.style.background = gradient;
     console.log("Background gradient set to:", gradient);
