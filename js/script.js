@@ -151,12 +151,18 @@ function updateBackground(){
 
     if (hours >= 6 && hours < 8) {
         gradient = `linear-gradient(90deg, rgba(245,203,144,1) 1%, rgba(253,29,29,1) 51%, rgba(111,53,134,1) 100%)`;
-    } else if (hours >= 8 && hours < 17) {
-        gradient = `linear-gradient(0deg, rgba(87,197,220,1) 0%, rgba(255,251,203,1) 100%)`;
+    } else if (hours >= 8 && hours < 10) {
+        gradient = `linear-gradient(90deg, rgba(87,197,220,1) 0%, rgba(255,251,203,1) 100%)`;
+    } else if (hours >= 10 && hours < 12) {
+        gradient = `linear-gradient(0deg, rgba(135,206,250,1) 0%, rgba(255,255,255,1) 100%)`;
+    } else if (hours >= 12 && hours < 15) {
+        gradient = `linear-gradient(0deg, rgba(135,206,250,1) 0%, rgba(0,191,255,1) 100%)`;
+    } else if (hours >= 15 && hours < 17) {
+        gradient = `linear-gradient(90deg, rgba(173,216,230,1) 0%, rgba(255,223,186,1) 100%)`;
     } else if (hours >= 17 && hours < 19) {
-        gradient = `linear-gradient(to top, #FF5722, #673AB7)`;
-    } else {
-        gradient = `background: linear-gradient(90deg, rgba(111,53,134,1) 23%, rgba(253,29,29,1) 54%, rgba(245,203,144,1) 95%)`;
+        gradient = `linear-gradient(90deg, rgba(111,53,134,1) 1%, rgba(255,69,0,1) 51%, rgba(255,165,0,1) 100%)`;
+    } else { 
+        gradient = `background: linear-gradient(0deg, rgba(0,0,50,1) 0%, rgba(0,0,100,1) 100%)`;
     }
     document.body.style.background = gradient;
     console.log("Background gradient set to:", gradient);
@@ -198,7 +204,7 @@ function calculateSunPosition(date) {
         y = -100;
         console.log(`Sun is not visible. Progress: ${progress}, X:${x}, Y:${y}`);
     }
-    console.log(`Sun position calculated at ${hours}: ${minutes} - X:${x}, Y:${y}`);
+    console.log(`Sun position calculated at ${hours}:${minutes} - X:${x}, Y:${y}`);
     return { x, y };
 }
 
@@ -209,8 +215,6 @@ function updateSunPosition() {
     
     sunElement.style.left = `${x}px`;
     sunElement.style.top = `${y}px`;
-
-    console.log(`Sun's position updated to - X: ${x}px, Y:${y}px at ${now.getHours()}:${now.getMinutes()}`);
 
     updateBackground();
     updateShadows();
