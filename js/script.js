@@ -143,22 +143,6 @@ function getRandomColor() {
     return color;
 }
 
-function calculateSunPosition() {
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-
-    const timeDecimal = hours + minutes / 60;
-    const sunrise = 6;
-    const sunset = 18;
-
-    if (timeDecimal < sunrise || timeDecimal > sunset) {
-        return 0;
-    }
-    const sunAngle = ((timeDecimal - sunrise) / (sunset - sunrise)) * 180;
-    return sunAngle;
-}
-
 function updateBackground(){
     const currentTime = new Date();
     const hours = currentTime.getHours();
@@ -178,30 +162,59 @@ function updateBackground(){
     console.log("Background gradient set to:", gradient);
 }
 
-function updateSunPosition() {
-    const sunDegrees = calculateSunPosition();
+function calculateSunPosition(date) {
+    //gets current hours/minutes from the date object
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    //convert to total minutes
+    const totalMinutes = hours * 60 + minutes;
+
+    const sunriseTime = 6 * 60; //6 AM = 360 minutes
+    // const noonTime = 12 * 60;
+    const sunsetTime = 18 * 60; //6 PM = 1080 minutes
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
+
     let x, y;
-    
-    if (sunDegrees <= 90) {
-        x = (sunDegrees / 90) * (viewportWidth / 2); // Move from left to center
-        y = viewportHeight - (sunDegrees / 90) * viewportHeight; // Move to top
+
+    if (totalMinutes >= sunriseTime && totalMinutes < 9 * 60) { // 6 AM - 9 AM
+        const progress = (totalMinutes - sunriseTime) / (3 * 60);
+        x = 0;
+        y= viewportHeight / 2 * (1 - progress); //move up
+        console.log(`Phase 1: Moving up left side. Progress: ${progress}, X:${x}, Y:${y}`);
+    } else if (totalMinutes >= 9 * 60 && totalMinutes < 15 * 60) {
+        const progress = (totalMinutes - 9 * 60) / (6 * 60);
+        x = viewportWidth * progress;
+        y = 0;
+        console.log(`Phase 2: Moving across top. Progress: ${progress}, X:${x}, Y:${y}`);
+    } else if (totalMinutes >= 15 * 60 && totalMinutes <= sunsetTime) {
+        const progress = (totalMinutes - 15 * 60) / (3* 60);
+        x = viewportWidth;
+        y = viewportHeight / 2 * progress;
+        console.log(`Phase 3: Moving down right side. Progress: ${progress}, X:${x}, Y:${y}`);
     } else {
-        x = ((sunDegrees - 90) / 90) * (viewportWidth / 2) + (viewportWidth / 2); // Move from center to right
-        y = 0; // At noon (top center)
+        x = -100;
+        y = -100;
+        console.log(`Sun is not visible. Progress: ${progress}, X:${x}, Y:${y}`);
     }
-    
-    console.log(`Sun Degrees: ${sunDegrees}, X: ${x}, Y: ${y}`);
+    console.log(`Sun position calculated at ${hours}: ${minutes} - X:${x}, Y:${y}`);
+    return { x, y };
+}
+
+function updateSunPosition() {
+    const now = new Date();
+    const { x, y } = calculateSunPosition(now);
     const sunElement = document.querySelector('.sun');
-    if (sunElement) {
-        sunElement.style.left = `${x}px`;
-        sunElement.style.top = `${y}px`;
-    }
     
+    sunElement.style.left = `${x}px`;
+    sunElement.style.top = `${y}px`;
+
+    console.log(`Sun's position updated to - X: ${x}px, Y:${y}px at ${now.getHours()}:${now.getMinutes()}`);
+
     updateBackground();
     updateShadows();
 }
+
 
 function updateShadows() {
     const sun = document.querySelector('.sun');
