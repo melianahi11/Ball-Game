@@ -152,7 +152,7 @@ function updateBackground(){
     if (hours >= 6 && hours < 8) {
         gradient = `linear-gradient(90deg, rgba(245,203,144,1) 1%, rgba(253,29,29,1) 51%, rgba(111,53,134,1) 100%)`;
     } else if (hours >= 8 && hours < 10) {
-        gradient = `linear-gradient(90deg, rgba(87,197,220,1) 0%, rgba(255,251,203,1) 100%)`;
+        gradient = `linear-gradient(90deg, rgba(255,251,203,1) 1%, rgba(87,197,220,1) 100%)`;
     } else if (hours >= 10 && hours < 12) {
         gradient = `linear-gradient(0deg, rgba(135,206,250,1) 0%, rgba(255,255,255,1) 100%)`;
     } else if (hours >= 12 && hours < 15) {
