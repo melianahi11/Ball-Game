@@ -18,7 +18,7 @@ CSS styling adds realistic gradients and shadows, enhancing each ball's visual a
 When cursor is on ball, it does a slight hovering animation and is able to be dragged anywhere along the screen.
 
 ### 6. Accurate Geographical Sun
-The sun is accurate to the user's timezone and moves smoothly across the viewport. With the balls shadows adjusting to the placement of the sun.
+The sun is accurate to the user's timezone and moves smoothly across the viewport. With the balls shadows adjusting to the placement of the sun, dynamic background changes, and newly animated clouds.
 
 ## Project Structure
 - **index.html**: HTML structure for the ball container and elements.
@@ -31,5 +31,3 @@ The sun is accurate to the user's timezone and moves smoothly across the viewpor
 - **HTML**: Provides the basic structure.
 
 ## Future Plans and Features
-### This project is a work in progress, with additional features planned:
-- **Dynamic changing backgrounds**: Backgrounds will change depending on the time of day.
