@@ -66,8 +66,6 @@ body {
     pointer-events: none;
 }
 
-
-
 .ball:hover {
     transform: translateY(-20px);
 }
@@ -196,3 +194,89 @@ button {
 .ray:nth-child(10) { 
     animation-delay: 4.8s;
 }
+
+.clouds {
+padding: 100px 0;
+background: linear-gradient(to bottom, #c9dbe9 0%, #fff 100%);
+width: 100vw;
+}
+
+.cloud {
+width: 200px;
+height: 60px;
+background: #fff;
+border-radius: 200px;
+position: relative;
+box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cloud:before,
+.cloud:after {
+content: '';
+position: absolute;
+background: #fff;
+width: 100px;
+height: 80px;
+top: -15px;
+left: 10px;
+border-radius: 100px;
+transform: rotate(30deg);
+}
+
+.cloud:after {
+width: 120px;
+height: 120px;
+top: -55px;
+/* right: 15px; */
+left: 60px;
+}
+
+.x1, .x2, .x4 {
+animation: moveclouds 35s linear infinite;
+}
+
+.x3, .x5 {
+animation: moveclouds-reverse 30s linear infinite;
+}
+
+.x2 {
+left: 200px;
+transform: scale(0.6);
+opacity: 0.6;
+animation-duration: 35s;
+}
+
+.x3 {
+left: -250px;
+top: -200px;
+transform: scale(0.8);
+opacity: 0.8;
+animation-duration: 30s;
+}
+
+.x4 {
+left: 470px;
+top: -250px;
+transform: scale(0.75);
+opacity: 0.75;
+animation-duration: 35s;
+}
+
+.x5 {
+left: -150px;
+top: -150px;
+transform: scale(0.8);
+opacity: 0.8;
+animation-duration: 30s;
+}
+
+@keyframes moveclouds {
+0% { margin-left: 150vw; }
+100% { margin-left: -150vw; }
+}
+
+@keyframes moveclouds-reverse {
+0% { margin-left: -150vw; }
+100% { margin-left: 150vw; }
+}
+
