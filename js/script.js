@@ -154,7 +154,7 @@ function updateBackground(){
     } else if (hours >= 8 && hours < 10) {
         gradient = `linear-gradient(90deg, rgba(255,251,203,1) 1%, rgba(87,197,220,1) 100%)`;
     } else if (hours >= 10 && hours < 12) {
-        gradient = `linear-gradient(0deg, rgba(135,206,250,1) 0%, rgba(255,255,255,1) 100%)`;
+        gradient = `linear-gradient(0deg, rgba(135,206,250,1) 0%, rgba(255,251,220,1) 100%)`;
     } else if (hours >= 12 && hours < 15) {
         gradient = `linear-gradient(0deg, rgba(135,206,250,1) 0%, rgba(0,191,255,1) 100%)`;
     } else if (hours >= 15 && hours < 17) {
@@ -185,19 +185,19 @@ function calculateSunPosition(date) {
     let x, y;
 
     if (totalMinutes >= sunriseTime && totalMinutes < 9 * 60) { // 6 AM - 9 AM
-        const progress = (totalMinutes - sunriseTime) / (3 * 60);
+        const progress = (totalMinutes - sunriseTime) / (3 * 60); //minutes passed since sunrise / 3 hours (total duration of phase)
         x = 0;
         y= viewportHeight / 2 * (1 - progress); //move up
         console.log(`Phase 1: Moving up left side. Progress: ${progress}, X:${x}, Y:${y}`);
     } else if (totalMinutes >= 9 * 60 && totalMinutes < 15 * 60) {
-        const progress = (totalMinutes - 9 * 60) / (6 * 60);
-        x = viewportWidth * progress;
+        const progress = (totalMinutes - 9 * 60) / (6 * 60); //minutes passed since 9 AM  -> / 6 hours 
+        x = viewportWidth * progress; //move right
         y = 0;
         console.log(`Phase 2: Moving across top. Progress: ${progress}, X:${x}, Y:${y}`);
     } else if (totalMinutes >= 15 * 60 && totalMinutes <= sunsetTime) {
         const progress = (totalMinutes - 15 * 60) / (3* 60);
         x = viewportWidth;
-        y = viewportHeight / 2 * progress;
+        y = viewportHeight / 2 * progress; //move down
         console.log(`Phase 3: Moving down right side. Progress: ${progress}, X:${x}, Y:${y}`);
     } else {
         x = -100;
